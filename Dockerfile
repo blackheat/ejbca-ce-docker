@@ -6,15 +6,14 @@ MAINTAINER DataKnight Solutions Development Team <devteam@dataknight.co>
 
 ARG MARIADB_JAVA_CLIENT_VERSION=2.0.1
 ARG MARIADB_DOWNLOAD_URL=https://downloads.mariadb.com/Connectors/java/connector-java-${MARIADB_JAVA_CLIENT_VERSION}
-ARG EJBCA_CE_VERSION=6.5.0.5
-ARG EJBCA_CE_FILE_URI=ejbca6/ejbca_6_5_0/ejbca_ce_6_5.0.5.zip
-ARG EJBCA_CE_FOLDER=ejbca_ce_6_5.0.5
+ARG EJBCA_CE_VERSION=7.4.3.2
+ARG EJBCA_CE_FILE_URI=ejbca7/ejbca_ce_7_4_3_2.zip
+ARG EJBCA_CE_FOLDER=ejbca_ce_7_4_3_2
 
 # Install packages 
 RUN set -xe \
-  && apk update \
-  && apk upgrade \
-  && apk add --update apache-ant mariadb-client \
+  && yum update \
+  && yum install ant \
   && curl -L https://sourceforge.net/projects/ejbca/files/${EJBCA_CE_FILE_URI} -o ejbca-${EJBCA_CE_VERSION}.zip \
   && unzip -d /opt ejbca-${EJBCA_CE_VERSION}.zip \
   && rm -f ejbca-${EJBCA_CE_VERSION}.zip \
