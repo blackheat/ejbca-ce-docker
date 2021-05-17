@@ -1,8 +1,7 @@
 #
 # Dockerfile for EJBCA server container
 #
-FROM dataknightllc/wildfly:stable
-MAINTAINER DataKnight Solutions Development Team <devteam@dataknight.co>
+FROM docker.io/blackheat/wildfly:23.0.1
 
 ARG MARIADB_JAVA_CLIENT_VERSION=2.0.1
 ARG MARIADB_DOWNLOAD_URL=https://downloads.mariadb.com/Connectors/java/connector-java-${MARIADB_JAVA_CLIENT_VERSION}
